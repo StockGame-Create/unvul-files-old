@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>주소가 바뀌었어요</title>
+
+<!-- 자바스크립트가 꺼져 있을 때만 적용되는 보조 수단 -->
+<noscript><meta http-equiv="refresh" content="5;url=https://unvul-files.unvul.workers.dev" /></noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --paper: #F6F1E7;
+    --paper-raised: #EFE8D8;
+    --ink: #262220;
+    --ink-soft: #6B6255;
+    --rule: #D9CFBB;
+    --accent: #B5542E;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    font-family: "Source Serif 4", "Noto Serif KR", Georgia, serif;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #FBF7EE 0%, transparent 60%),
+      var(--paper);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 27rem;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-top: 5px solid var(--accent);
+    box-shadow: 6px 6px 0 var(--rule);
+    padding: 1.9rem 1.6rem 1.6rem;
+    animation: rise 0.45s ease both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .icon {
+    width: 2.1rem;
+    height: 2.1rem;
+    margin-bottom: 0.9rem;
+    color: var(--accent);
+  }
+
+  .tag {
+    margin: 0 0 0.5rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0 0 0.9rem;
+    font-size: 1.4rem;
+    line-height: 1.35;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 0.8rem;
+    color: var(--ink);
+  }
+
+  .url {
+    display: block;
+    margin: 0.2rem 0 1rem;
+    padding: 0.6rem 0.75rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.82rem;
+    word-break: break-all;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .url:hover { background: #E7DEC8; border-color: var(--ink); }
+
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    flex: 1 1 auto;
+    text-align: center;
+    text-decoration: none;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem;
+    padding: 0.68rem 0.9rem;
+    border: 1.5px solid var(--ink);
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+
+  .btn.primary {
+    color: var(--paper);
+    background: var(--ink);
+  }
+  .btn.primary:hover { opacity: 0.85; }
+
+  .btn.ghost {
+    color: var(--ink);
+    background: transparent;
+  }
+  .btn.ghost:hover { background: var(--paper-raised); }
+
+  .wait-row {
+    margin-top: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  .bar-track {
+    margin-top: 0.5rem;
+    height: 3px;
+    background: var(--rule);
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    width: 100%;
+    background: var(--accent);
+    transform-origin: left;
+    transition: transform linear;
+  }
+
+  .wait-row[hidden],
+  .bar-track[hidden] { display: none; }
+</style>
+</head>
+<body>
+
+  <div class="card" role="dialog" aria-labelledby="t">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+      <path d="M3 7v10l9 4 9-4V7"/>
+      <path d="M12 11v10"/>
+    </svg>
+
+    <p class="tag">주소 이전 안내</p>
+    <h1 id="t">새 웹사이트로 이사했어요</h1>
+    <p>자료 보관함이 새 주소로 이전했어요. 앞으로는 아래 새 주소를 이용해주세요.</p>
+
+    <a class="url" href="https://unvul-files.unvul.workers.dev">https://unvul-files.unvul.workers.dev</a>
+
+    <p>이 주소는 더 이상 사용되지 않으며, 곧 접속이 안 될 수 있어요. 즐겨찾기를 새 주소로 바꿔두시면 좋아요.</p>
+
+    <div class="actions">
+      <a class="btn primary" href="https://unvul-files.unvul.workers.dev">새 사이트로 바로가기</a>
+      <button type="button" class="btn ghost" id="waitBtn">잠깐 기다리기</button>
+    </div>
+
+    <div id="countdownWrap">
+      <div class="wait-row">
+        <span id="countdownText">5초 뒤 자동으로 이동합니다…</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" id="barFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var NEW_URL = "https://unvul-files.unvul.workers.dev";
+      var SECONDS = 5;
+
+      var wrap = document.getElementById("countdownWrap");
+      var text = document.getElementById("countdownText");
+      var bar = document.getElementById("barFill");
+      var waitBtn = document.getElementById("waitBtn");
+
+      var remaining = SECONDS;
+      var tickTimer = null;
+      var redirectTimer = null;
+      var cancelled = false;
+
+      // 진행 막대: 처음엔 꽉 찬 상태에서 0으로, SECONDS초에 걸쳐 선형으로 줄어든다.
+      bar.style.transitionDuration = SECONDS + "s";
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          bar.style.transform = "scaleX(0)";
+        });
+      });
+
+      tickTimer = setInterval(function () {
+        remaining -= 1;
+        if (remaining <= 0) {
+          clearInterval(tickTimer);
+          return;
+        }
+        text.textContent = remaining + "초 뒤 자동으로 이동합니다…";
+      }, 1000);
+
+      redirectTimer = setTimeout(function () {
+        if (!cancelled) location.href = NEW_URL;
+      }, SECONDS * 1000);
+
+      waitBtn.addEventListener("click", function () {
+        cancelled = true;
+        clearTimeout(redirectTimer);
+        clearInterval(tickTimer);
+        wrap.hidden = true;
+        waitBtn.hidden = true;
+      });
+    })();
+  </script>
+
+</body>
+</html>
